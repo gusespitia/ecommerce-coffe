@@ -11,11 +11,7 @@ import { useState } from "react";
 
 export default function Page() {
   const params = useParams();
-  const { categorySlug } = params;
-  
-  console.log("Category Slug:", categorySlug);
-  
-
+  const categorySlug = params.categorySlug ?? '';
   const { result, loading }: ResponseType = useGetCategoryProduct(categorySlug);
   const [filterOrigen, setFilterOrigen] = useState("");
   const [filterTaste, setFilterTaste] = useState("");
