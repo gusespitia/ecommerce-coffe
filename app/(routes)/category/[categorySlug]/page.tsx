@@ -1,4 +1,6 @@
 "use client";
+
+
 import { useGetCategoryProduct } from "@/api/getCategoryProduct";
 import { useParams } from "next/navigation";
 import { ResponseType } from "@/types/response";
@@ -11,7 +13,7 @@ import { useState } from "react";
 
 export default function Page() {
   const params = useParams();
-  const categorySlug = params.categorySlug ?? '';
+  const categorySlug = params.categorySlug ?? 'capsula';
   const { result, loading }: ResponseType = useGetCategoryProduct(categorySlug);
   const [filterOrigen, setFilterOrigen] = useState("");
   const [filterTaste, setFilterTaste] = useState("");
