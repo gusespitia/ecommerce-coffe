@@ -19,10 +19,11 @@ const LovedItemProduct = (props: LovedItemProductProps) => {
 
   const { removeItem } = useWishlist();
   const { addItem } = useCart();
-  const addTocheckOut = () => {
+  const addTocheckOut = (product: ProductType) => {
     addItem(product);
     removeItem(product.id);
   };
+  
   return (
     <li className="flex p-6 border-b">
       <div
@@ -39,6 +40,7 @@ const LovedItemProduct = (props: LovedItemProductProps) => {
           <h2 className="text-lg font-bold">{product.productName}</h2>
           <p className="font-bold">{formatPrice(product.price)} </p>
           <ProductTasteOrigin origin={product.origin} taste={product.taste} />
+
           <Button
             onClick={() => addTocheckOut(product)}
             className="mt-5 rounded-full"
