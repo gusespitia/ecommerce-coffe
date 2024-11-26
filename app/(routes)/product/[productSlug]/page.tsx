@@ -1,6 +1,6 @@
 "use client";
 
-import { useGetProductBySlug } from "@/api/getproductBySlug";
+import { useGetCategoryProduct } from "@/api/getCategoryProduct";
 import { useParams } from "next/navigation";
 import { ResponseType } from "@/types/response";
 import SkeletonProduct from "./components/skeleton-product";
@@ -9,17 +9,25 @@ import InfoProduct from "./components/info-product";
 
 export default function Page() {
   const params = useParams();
-  const { productSlug } = params;
-  const { result }: ResponseType = useGetProductBySlug(
-    productSlug as string
-  );
-  if (!productSlug) {
-    // handle the case where productSlug is undefined or null
-    return <div>Product slug not found</div>;
+  const categorySlug = params.categorySlug;
+
+  // Asegurarse de que categorySlug no sea undefined antes de llamar a la función.
+  if (!categorySlug) {
+    return <div>Category slug not found</div>;
   }
+
+  // Llamar a la función solo si categorySlug está definido.
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { result, loading }: ResponseType = useGetCategoryProduct(categorySlug);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   if (result === null) {
     return <SkeletonProduct />;
   }
+
   return (
     <div className="max-w-6xl mx-auto py-4 sm:py-32 sm:px-24">
       <div className="grid sm:grid-cols-2">
@@ -33,3 +41,4 @@ export default function Page() {
     </div>
   );
 }
+
