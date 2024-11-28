@@ -26,14 +26,15 @@ const ProductCard = (props: ProductCardProps) => {
     >
       {/* Etiquetas Superiores */}
       <div className="absolute flex items-center justify-between gap-3 px-2 z-[1] top-4">
-      <p
+    
+        <p className="text-xs font-semibold px-2 py-1 bg-yellow-900 text-white rounded-full dark:bg-white dark:text-black w-fit">
+          {product.origin}
+        </p>
+        <p
           className="px-2 py-1 text-xs text-white bg-black rounded-full
                  dark:bg-white dark:text-black w-fit"
         >
           {product.taste}
-        </p>
-        <p className="text-xs font-semibold px-2 py-1 bg-yellow-900 text-white rounded-full dark:bg-white dark:text-black w-fit">
-          {product.origin}
         </p>
       </div>
 
@@ -48,21 +49,22 @@ const ProductCard = (props: ProductCardProps) => {
           {product.images.map((image) => (
             <CarouselItem className="group relative" key={image.id}>
               <Image
-                src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.url}`}
+                src={`${image.url}`}
                 alt={product.productName || "Imagen del producto"}
                 width={400}
-                height={300}
+                height={300}   
+                style={{ width: 'auto', height: 'auto' }}            
                 className="rounded-lg object-cover h-48 w-full"
               />
               {/* Controles al Hover */}
               <div className="absolute flex justify-center w-full gap-4 px-4 transition-opacity duration-200 opacity-0 bottom-4 group-hover:opacity-100">
                 <IconButton
-                  onlClick={() => router.push(`/product/${product.slug}`)}
+                  onClick={() => router.push(`/product/${product.slug}`)}
                   icon={<Expand size={20} className="text-gray-700 dark:text-gray-300" />}
                   className="bg-white border border-gray-200 hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
                 />
                 <IconButton
-                  onlClick={() => router.push(`/product/${product.slug}`)}
+                  onClick={() => router.push(`/product/${product.slug}`)}
                   icon={<ShoppingCart size={20} className="text-gray-700 dark:text-gray-300" />}
                   className="bg-white border border-gray-200 hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
                 />

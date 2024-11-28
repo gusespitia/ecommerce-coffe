@@ -24,11 +24,12 @@ const CarouselProduct = (props: CarouselProductProps) => {
           {imageArray.map((image) => (
             <CarouselItem key={image.id}>
               <Image
-                src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.url}`}
+                src={`${image.url}`}
                 alt="Image Product"
                 width={500}
                 height={500}
                 className="rounded-lg min-h-24 min-w-[300px]"
+                style={{ width: 'auto', height: 'auto' }}
               />
             </CarouselItem>
           ))}

@@ -23,7 +23,7 @@ const FeaturesProducts = () => {
   const { loading, result }: ResponseType = useGetFeaturedProducts();
   const router = useRouter();
   const { addItem, items } = useCart();
-  console.log(items);
+ 
 
   return (
     <div className="max-w-6xl mx-auto py-4 sm:py-16 sm:px-24">
@@ -44,22 +44,24 @@ const FeaturesProducts = () => {
                     <Card className="py-4 border border-gray-200 shadow-none">
                       <CardContent className="flex items-center relative px-6 justify-center py-2">
                         {images && images.length > 0 && (
-                          <Image
-                            src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${images[0].url}`}
-                            alt={productName || "Image Product"}
-                            width={300}
-                            height={300}
-                          />
+                         <Image
+                         src={`${images[0].url}`}
+                         alt={productName || "Image Product"}                         
+                         width={300}
+                         height={300}
+                         style={{ width: 'auto', height: 'auto' }}
+                       />
+                       
                         )}
                         <div className="absolute w-full px-6 transition duration-200 opacity-0 group-hover:opacity-100 bottom-5">
                           <div className="flex justify-center gap-x-6">
                             <IconButton
-                              onlClick={() => router.push(`/product/${slug}`)}
+                              onClick={() => router.push(`/product/${slug}`)}
                               icon={<Expand size={20} />}
                               className="text-gray-600 hover:text-blue-600"
                             />
                             <IconButton
-                              onlClick={() => addItem(product)}
+                              onClick={() => addItem(product)}
                               icon={<ShoppingCart />}
                               className="text-gray-600 hover:text-blue-600"
                             />

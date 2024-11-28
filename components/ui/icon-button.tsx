@@ -1,14 +1,14 @@
 import { cn } from "@/lib/utils";
 interface IconButtonProps {
-  onlClick: () => void;
+  onClick: () => void;
   icon: React.ReactElement;
   className?: string;
 }
 const IconButton = (props: IconButtonProps) => {
-  const { onlClick, icon, className } = props;
+  const { onClick, icon, className } = props;
   return (
     <button
-      onClick={onlClick}
+      onClick={onClick}
       className={cn(
         "rounded-full flex items-center justify-center bg-white border shadow-md p-2 hover:scale-110 transition",
         className

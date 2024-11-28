@@ -30,11 +30,12 @@ const ChooseCategory = () => {
               className="relative max-w-xs mx-auto overflow-hidden bg-no-repeat bg-cover rounded-lg"
             >
               <Image
-                src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${category.mainImage.url}`}
+                src={`${category.mainImage.url}`}
                 alt={category.categoryName}
                 width={300}
                 height={380}
-                className="max-w-[270px] max-h-[380px] transition duration-300 ease-in-out rounded-lg hover:scale-110"
+                style={{ width: 'auto', height: 'auto' }}
+                className="w-auto h-auto max-w-[270px] max-h-[380px] transition duration-300 ease-in-out rounded-lg hover:scale-110"
               />
               <p className="absolute w-full py-2 text-lg font-bold text-center text-white bottom-5 backdrop-blur-lg">
                 {category.categoryName}

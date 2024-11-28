@@ -9,11 +9,11 @@ type FilterTasteProps = {
 const FilterTaste = (props: FilterTasteProps) => {
   const { setFilterTaste } = props
   const { result, loading }: FilterTypes = useGetProductField();
-  console.log(result);
+
 
   return (
     <div className="my-5">
-      <p className="mb-3 font-bold">taste</p>
+      <p className="mb-3 font-bold">Taste</p>
       {loading && result === null && <p>Cargando taste</p>}
       <RadioGroup onValueChange={(value) => setFilterTaste(value)}>
         {result !== null &&

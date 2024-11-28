@@ -9,7 +9,7 @@ type FilterOriginProps = {
 const FilterOrigin = (props: FilterOriginProps) => {
   const { setFilterOrigen } = props
   const { result, loading }: FilterTypes = useGetProductField();
-  console.log(result);
+
 
   return (
     <div className="my-5">

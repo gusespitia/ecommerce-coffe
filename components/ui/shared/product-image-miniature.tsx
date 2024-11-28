@@ -17,11 +17,12 @@ const ProductImageMinuature = (props: ProductImageMiniatureProps) => {
       className="cursor-pointer"
     >
       <Image
-        src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${url}`}
+        src={`${url}`}
         alt="Product"
-        width={300}
+        width={300}       
         height={300}
-        className="w-32 h-24 min-h-20 min-w-28 overflow-hidden rounded-md sm:w-auto sm:h-32"
+        style={{ width: 'auto', height: 'auto' }}
+        className="w-32 h-24 min-h-20 min-w-28 overflow-hidden rounded-md sm:w-auto sm:h-32 object-cover"
       />
     </div>
   );
