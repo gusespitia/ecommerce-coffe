@@ -22,15 +22,15 @@ const MenuList = () => {
         <NavigationMenuItem>
           <NavigationMenuTrigger>Sobre nosotros</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+            <ul className="gap-3 grid lg:grid-cols-[.75fr_1fr] p-4 md:w-[400px] lg:w-[500px]">
               <li className="row-span-3">
                 <NavigationMenuLink asChild>
                   <a
-                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                    className="flex flex-col justify-end bg-gradient-to-b from-muted/50 to-muted focus:shadow-md p-6 rounded-md w-full h-full no-underline select-none outline-none"
                     href="/"
                   >
-                    <div className="mb-2 mt-4 text-lg font-medium">GusDev</div>
-                    <p className="text-sm leading-tight text-muted-foreground">
+                    <div className="mt-4 mb-2 font-medium text-lg">GusDev</div>
+                    <p className="text-muted-foreground text-sm leading-tight">
                       Sumérgete en el apasionante mundo del café con nuestra web
                       especializada en la venta de granos de café de alta
                       calidad, molidos y en cápsulas.
@@ -38,10 +38,10 @@ const MenuList = () => {
                   </a>
                 </NavigationMenuLink>
               </li>
-              <ListItem href="/shop" title="Tienda">
+              <ListItem href="/" title="Tienda">
                 Accede a toda tu información, tus pedidos y mucho más.
               </ListItem>
-              <ListItem href="/offers" title="Ofertas">
+              <ListItem href="/" title="Ofertas">
                 Sección dedicada a promociones y descuentos especiales
               </ListItem>
               <ListItem href="/" title="Accesorios">
@@ -53,7 +53,7 @@ const MenuList = () => {
         <NavigationMenuItem>
           <NavigationMenuTrigger>Cafés</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+            <ul className="gap-3 grid md:grid-cols-2 p-4 w-[400px] md:w-[500px] lg:w-[600px]">
               {components.map((component) => (
                 <ListItem
                   key={component.title}
@@ -67,7 +67,7 @@ const MenuList = () => {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="/accesorios" legacyBehavior passHref>
+          <Link href="/" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               Accesorios
             </NavigationMenuLink>
@@ -116,8 +116,8 @@ const ListItem = React.forwardRef<
           )}
           {...props}
         >
-          <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+          <div className="font-medium text-sm leading-none">{title}</div>
+          <p className="line-clamp-2 text-muted-foreground text-sm leading-snug">
             {children}
           </p>
         </a>

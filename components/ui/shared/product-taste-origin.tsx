@@ -6,11 +6,11 @@ interface ProductTasteOriginProps {
 const ProductTasteOrigin = (props: ProductTasteOriginProps) => {
   const { origin, taste } = props;
   return (
-    <div className="flex gap-3 items-between">
-      <p className="px-2 py-1 texts-xs text-white w-fit bg-black rounded-full dark:bg-white dark:text-black">
+    <div className="flex items-between gap-2">
+      <p className="bg-black dark:bg-white px-2 py-1 rounded-full w-fit h-8 text-white text-xs dark:text-black">
         {taste}
       </p>
-      <p className="px-2 py-1 texts-xs text-white w-fit bg-yellow-900 rounded-full">
+      <p className="bg-yellow-900 px-2 py-1 rounded-full w-fit h-8 text-white text-xs">
         {origin}
       </p>
     </div>

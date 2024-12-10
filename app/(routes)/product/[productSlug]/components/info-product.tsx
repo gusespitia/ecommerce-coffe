@@ -17,8 +17,8 @@ const InfoProduct = (props: InfoProductProps) => {
   const { addLovedItem } = useWishlist();
 
   return (
-    <div className="">
-      <div className="justify-between mb-3 sm:flex">
+    <div className="px-4">
+      <div className="sm:flex justify-between mb-3">
         <h1 className="text-2xl">{product.productName}</h1>
         <ProductTasteOrigin origin={product.origin} taste={product.taste} />
       </div>
@@ -35,7 +35,7 @@ const InfoProduct = (props: InfoProductProps) => {
           height={30}
           strokeWidth={1}
           onClick={() => addLovedItem(product)}
-          className="cursor-pointer transition duration-300 hover:fill-black"
+          className="transition duration-300 cursor-pointer hover:fill-black"
         />
       </div>
     </div>

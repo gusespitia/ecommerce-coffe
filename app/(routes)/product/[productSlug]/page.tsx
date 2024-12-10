@@ -19,9 +19,9 @@ export default function Page() {
     return <SkeletonProduct />;
   }
   return (
-    <div className="max-w-6xl mx-auto py-4 sm:py-32 sm:px-24">
+    <div className="mx-auto sm:px-24 py-4 sm:py-32 max-w-6xl">
       <div className="grid sm:grid-cols-2">
-        <div className="r">
+        <div className="px-4">
           <CarouselProduct images={result[0].images} />
         </div>
         <div className="sm:px-12">

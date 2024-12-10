@@ -18,6 +18,7 @@ import { Expand, ShoppingCart } from "lucide-react";
 import IconButton from "./icon-button";
 import { useRouter } from "next/navigation";
 import { useCart } from "@/hooks/use-cart";
+import ProductTasteOrigin from "./shared/product-taste-origin";
 
 const FeaturesProducts = () => {
   const { loading, result }: ResponseType = useGetFeaturedProducts();
@@ -26,8 +27,8 @@ const FeaturesProducts = () => {
  
 
   return (
-    <div className="max-w-6xl mx-auto py-4 sm:py-16 sm:px-24">
-      <h3 className="text-3xl sm:pb-8 px-6">Productos destacados</h3>
+    <div className="mx-auto sm:px-24 py-4 sm:py-16 max-w-6xl">
+      <h3 className="px-6 sm:pb-8 text-3xl">Productos destacados</h3>
       <Carousel>
         <CarouselContent className="ml-2 md:ml-4">
           {loading && <SkeletonSchema grid={3} />}
@@ -38,11 +39,11 @@ const FeaturesProducts = () => {
               return (
                 <CarouselItem
                   key={id}
-                  className="md:basis-1/2 lg:basis-1/3 group"
+                  className="group md:basis-1/2 lg:basis-1/3"
                 >
-                  <div className="p-1">
-                    <Card className="py-4 border border-gray-200 shadow-none">
-                      <CardContent className="flex items-center relative px-6 justify-center py-2">
+                  <div className="mx-auto p-2">
+                    <Card className="border-gray-200 shadow-none py-4 border">
+                      <CardContent className="relative flex justify-center items-center px-6 py-2">
                         {images && images.length > 0 && (
                          <Image
                          src={`${images[0].url}`}
@@ -53,7 +54,7 @@ const FeaturesProducts = () => {
                        />
                        
                         )}
-                        <div className="absolute w-full px-6 transition duration-200 opacity-0 group-hover:opacity-100 bottom-5">
+                        <div className="bottom-5 absolute opacity-0 group-hover:opacity-100 px-6 w-full transition duration-200">
                           <div className="flex justify-center gap-x-6">
                             <IconButton
                               onClick={() => router.push(`/product/${slug}`)}
@@ -68,15 +69,10 @@ const FeaturesProducts = () => {
                           </div>
                         </div>
                       </CardContent>
-                      <div className="flex justify-between gap-4 px-8">
-                        <h3 className="font-bold text-lg">{productName} </h3>
-                        <div className="flex justify-between gap-3 items-center">
-                          <p className="px-2 py-1 text-white bg-black rounded-full dark:bg-white dark:text-black w-fit">
-                            {taste}
-                          </p>
-                          <p className="px-2 py-1 text-white bg-yellow-900 rounded-full dark:bg-white dark:text-black w-fit">
-                            {origin}
-                          </p>
+                      <div className="justify-between items-center gap-2 grid grid-cols-2 mx-auto px-4">
+                        <h3 className="font-bold text-sm m">{productName} </h3>
+                        <div className="flex justify-between items-center gap-2">
+                        <ProductTasteOrigin origin={product.origin} taste={product.taste} />
                         </div>
                       </div>
                     </Card>
@@ -85,8 +81,8 @@ const FeaturesProducts = () => {
               );
             })}
         </CarouselContent>
-        <CarouselPrevious className="hidden sm:flex" />
-        <CarouselNext className="hidden sm:flex" />
+        <CarouselPrevious className="sm:flex hidden" />
+        <CarouselNext className="sm:flex hidden" />
       </Carousel>
     </div>
   );
